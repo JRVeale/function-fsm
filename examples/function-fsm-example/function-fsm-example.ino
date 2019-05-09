@@ -1,6 +1,6 @@
 //Example: Objects that hold a FunctionFSM as an instance variable.
 
-#include "FunctionFSM.h"
+#include <FunctionFSM.h>
 
 class MyClass {
 private:
