@@ -15,16 +15,7 @@
 
 #include <functional>
 #include <vector>
-
-//include Arduino for access to millis() (a millisecond tick count)
-//(this is currently for use on an ESP32, which supports Arduino's libraries)
-//could easily remove if using stdlib's timers instead
-#if defined(ARDUINO) && ARDUINO >= 100
-  #include <Arduino.h>
-#else
-  #include <WProgram.h>
-#endif
-
+#include <chrono>
 
 struct FunctionState {
   FunctionState(std::function<void()> on_enter,
@@ -74,7 +65,7 @@ private:
   
   struct TimedTransition {
     Transition transition;
-    unsigned long start;
+	std::chrono::time_point<std::chrono::high_resolution_clock> start;
     unsigned long interval;
   };
   

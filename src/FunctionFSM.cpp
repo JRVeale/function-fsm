@@ -57,7 +57,7 @@ void FunctionFsm::add_timed_transition(FunctionState* state_from,
   
   TimedTransition timed_transition;
   timed_transition.transition = transition;
-  timed_transition.start = 0;
+  timed_transition.start = std::chrono::high_resolution_clock::now();
   timed_transition.interval = interval;
   
   m_timed_transitions.push_back(timed_transition);
@@ -91,15 +91,10 @@ void FunctionFsm::trigger(int event){
 void FunctionFsm::check_timed_transitions(){
   for (auto& tt : m_timed_transitions){
     if(tt.transition.state_from == m_current_state){
-      if(tt.start == 0){
-        tt.start = millis();
-      }
-      else {
-        unsigned long now = millis();
-        if (now - tt.start >= tt.interval){
-          FunctionFsm::make_transition(&(tt.transition));
-          tt.start = 0;
-        }
+      std::chrono::time_point<std::chrono::high_resolution_clock> now = std::chrono::high_resolution_clock::now();
+      if (std::chrono::duration_cast<std::chrono::milliseconds>(now - tt.start).count() >= tt.interval){
+        FunctionFsm::make_transition(&(tt.transition));
+        tt.start = std::chrono::high_resolution_clock::now();
       }
     }
   }
@@ -138,7 +133,7 @@ void FunctionFsm::make_transition(Transition* transition) {
   m_current_state = transition->state_to;
   
   //Initialise all timed transitions from m_current_state
-  unsigned long now = millis();
+  std::chrono::time_point<std::chrono::high_resolution_clock> now =  std::chrono::high_resolution_clock::now();
   for (auto& tt : m_timed_transitions) {
     if(tt.transition.state_from == m_current_state){
       tt.start = now;
