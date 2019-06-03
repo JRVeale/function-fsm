@@ -12,3 +12,5 @@ Feel free to submit pull-requests for any features or improvements you'd like to
 Major credit to Jon Black's [arduino-fsm](https://github.com/jonblack/arduino-fsm) - an arduino library for implementing finite state machines.
 
 function-fsm was developed to expand upon the functionality of this library (allowing FSM's to be used within other classes, allowing the library to be used outside of the Arduino environment, and providing other useful features too!). While a lot of the code has been rewritten, function-fsm leans heavily on the structure of arduino-fsm. Many thanks to [Jon Black](https://github.com/jonblack) for having provided such a useful arduino library
+
+Also, the top answer to my [Stack Overflow question](https://stackoverflow.com/questions/55513790/understanding-error-with-taking-address-of-non-static-member-to-form-pointer-to) that sparked this, thank you.
