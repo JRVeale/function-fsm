@@ -6,7 +6,7 @@
  * An FSM libary based upon arduino-fsm that uses *
  * std::function<void()> instead of raw function  *
  * pointers. This will allow FSMs to be used      *
- * parent classes.                                *
+ * within parent classes.                         *
  *                                                *
  * (c) James Veale 2019                           *
 \*================================================*/
@@ -159,3 +159,4 @@ void FunctionFsm::make_transition(Transition* transition) {
 
 
 
+//nosey
