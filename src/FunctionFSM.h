@@ -6,7 +6,7 @@
  * An FSM libary based upon arduino-fsm that uses *
  * std::function<void()> instead of raw function  *
  * pointers. This will allow FSMs to be used      *
- * parent classes.                                *
+ * inside parent classes.                         *
  *                                                *
  * (c) James Veale 2019                           *
 \*================================================*/
@@ -65,7 +65,7 @@ private:
   
   struct TimedTransition {
     Transition transition;
-	std::chrono::time_point<std::chrono::high_resolution_clock> start;
+		std::chrono::time_point<std::chrono::high_resolution_clock> start;
     unsigned long interval;
   };
   
