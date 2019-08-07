@@ -1,0 +1,16 @@
+# Syntax Coloring Map For ExampleLibrary
+
+# Datatypes (KEYWORD1)
+FunctionState	KEYWORD1
+FunctionFsm	KEYWORD1
+
+# Methods and Functions (KEYWORD2)
+add_transition	KEYWORD2
+add_timed_transition	KEYWORD2
+run_machine	KEYWORD2
+get_current_state	KEYWORD2
+is_in_state	KEYWORD2
+
+# Instances (KEYWORD2)
+
+# Constants (LITERAL1)
