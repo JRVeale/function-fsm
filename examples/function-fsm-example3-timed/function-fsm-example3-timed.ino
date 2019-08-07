@@ -1,11 +1,6 @@
+//Example 3: Blink using a Finite State Machine with timed transitions
+
 #include <FunctionFSM.h>
-
-
-//non-class fsm.
-
-//variables
-char a = 'a';
-char b = 'b';
 
 //fsm state functions
 void a_on_enter(){
@@ -25,8 +20,11 @@ FunctionFsm fsm(&state_a);
 
 
 void initfsm(){
+//define timed transitions between states in a similar manner as triggered transitions
+//myfsm.add_timed_transition(&state_from, &state_to, time_until_transition_ms, &func_on_transition
   fsm.add_timed_transition(&state_a, &state_b, 1000, nullptr);
   fsm.add_timed_transition(&state_b, &state_a, 500, nullptr);
+  //You can mix regular and timed transitions to achieve timeouts simply
 }
 
 void setup(){
